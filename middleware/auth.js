@@ -1,4 +1,3 @@
-const uuid = require("uuid");
 const { getUser } = require("../utils/auth");
 async function restrictToOnlyAuthUser(req, res, next) {
   const userId = req.cookies?.uid;

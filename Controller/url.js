@@ -11,7 +11,7 @@ async function handleGenrateNewShortURL(req, res) {
   });
 
   console.log("url Created", short);
-  return res.render("home", { url: short });
+  return res.render("home", { latest: short });
 }
 
 async function handleGetToRedirectURL(req, res) {

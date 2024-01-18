@@ -28,8 +28,7 @@ async function handleLoginUser(req, res) {
       const sessionId = uuidv4();
       setUser(sessionId, USER);
       res.cookie("uid", sessionId);
-
-      return res.render("home");
+      return res.redirect("/");
     } else {
       console.log("user not found");
       return res.render("login");

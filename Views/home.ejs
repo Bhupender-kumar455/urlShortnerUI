@@ -57,7 +57,14 @@
         <input type="text" name="url" placeholder="Your URL" />
         <button type="submit">Create</button>
       </form>
+
+      <% if (locals.latest) { %>
+      <a href="http://localhost:5001/url/<%= latest %>"
+        >http://localhost:5001/url/<%= latest %></a
+      >
+      <% } %>
       <div class="table">
+        <% if (locals.url) { %>
         <table>
           <thead>
             <th>No.</th>
@@ -66,22 +73,21 @@
             <th>Clicked</th>
           </thead>
           <tbody>
-            <% if (locals.url) { %> <% url.forEach((one,index) => { %>
+            <% url.forEach((one,index) => { %>
             <tr>
               <td><%= index+1 %></td>
               <td>
-                <a href="http://localhost:5001/url/<%= one.shortId %>"></a><%=
-                one.shortId %>
+                <a href="http://localhost:5001/url/<%= one.shortId %>"
+                  >http://localhost:5001/url/<%= one.shortId %>
+                </a>
               </td>
               <td><%= one.redirectURL %></td>
               <td><%= one.visitHistory.length %></td>
             </tr>
-            <% }) %>
+            <% }) %> <% } %>
           </tbody>
         </table>
       </div>
-
-      <% } %>
     </div>
   </body>
 </html>
